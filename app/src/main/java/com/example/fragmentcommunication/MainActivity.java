@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirstFragment fragment = new FirstFragment();
+                FirstFragment fragment = (FirstFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+                assert fragment != null;
                 // Utilisation de la fonction créé pour communiquer avec le fragment.
                 fragment.setText( editText.getText().toString() );
-                getSupportFragmentManager().beginTransaction().replace( R.id.fragment, fragment ).commit();
             }
         } );
     }

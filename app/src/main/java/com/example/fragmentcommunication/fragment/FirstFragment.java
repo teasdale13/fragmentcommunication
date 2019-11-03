@@ -17,15 +17,14 @@ import com.example.fragmentcommunication.R;
 public class FirstFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    private String message;
+    private TextView textView;
 
     public FirstFragment() {
         // Required empty public constructor
     }
 
     public static FirstFragment newInstance() {
-        FirstFragment fragment = new FirstFragment();
-        return fragment;
+        return new FirstFragment();
     }
 
     /**
@@ -37,7 +36,7 @@ public class FirstFragment extends Fragment {
      * Ici je passe un String mais ça pourrait être un autre type de variable ou objet.
      */
     public void setText(String msg) {
-        message = msg;
+        textView.setText( msg );
     }
 
     @Override
@@ -67,8 +66,8 @@ public class FirstFragment extends Fragment {
         View view = inflater.inflate( R.layout.fragment_first, container, false );
 
         /* Ajoutons maintenant un TextView pour afficher le message */
-        TextView textView = view.findViewById( R.id.textview );
-        textView.setText( message );
+        textView = view.findViewById( R.id.textview );
+
 
         return view;
     }
@@ -82,6 +81,12 @@ public class FirstFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach( context );
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException( context.toString()
+//                    + " must implement OnFragmentInteractionListener" );
+//        }
     }
 
     @Override
